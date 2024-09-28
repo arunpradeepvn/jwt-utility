@@ -7,13 +7,13 @@ A simple utility for decoding JWT (JSON Web Tokens) in TypeScript.
 You can install the package via npm:
 
 ```bash
-npm install jwt-utility
+npm install @arunpradeepvn/jwt-utility
 ```
 
 You can install the package via yarn:
 
 ```bash
-yarn add jwt-utility
+yarn add @arunpradeepvn/jwt-utility
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ yarn add jwt-utility
 You can import the decodeJWT function from the package:
 
 ```bash
-import { decodeJWT } from 'jwt-utility';
+import { decodeJWT } from '@arunpradeepvn/jwt-utility';
 ```
 
 ### Decoding a JWT

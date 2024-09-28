@@ -26,7 +26,14 @@ function manualAtob(encoded: string): string {
   return output;
 }
 
-export const decodeJWT = (token: string): Record<string, any> => {
+interface JWTPayload {
+  sub: string;
+  name: string;
+  iat: number;
+  [key: string]: any; // Allows for any additional properties
+}
+
+export const decodeJWT = (token: string): JWTPayload => {
   const parts = token.split('.');
   if (parts.length !== 3) {
     throw new Error('Invalid JWT format');
@@ -35,5 +42,10 @@ export const decodeJWT = (token: string): Record<string, any> => {
   const payload = parts[1];
   const base64Url = payload.replace(/-/g, '+').replace(/_/g, '/');
   const decodedPayload = manualAtob(base64Url);
-  return JSON.parse(decodedPayload);
+
+  try {
+    return JSON.parse(decodedPayload) as JWTPayload;
+  } catch (error) {
+    throw new Error('Invalid JSON in JWT payload');
+  }
 };
