@@ -1,5 +1,5 @@
 {
-  "name": "jwt-utility",
+  "name": "@ap/jwt-utility",
   "version": "1.0.0",
   "description": "A simple utility for decoding JWT tokens.",
   "main": "dist/index.js",
