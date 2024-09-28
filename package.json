@@ -3,8 +3,10 @@
   "version": "1.0.4",
   "description": "A simple utility for decoding JWT tokens.",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc",
     "test": "echo \"No tests specified\" && exit 0"
   },
   "keywords": [
@@ -13,9 +15,12 @@
     "decoder",
     "typescript"
   ],
-  "author": "Your Name",
+  "author": "Arunpradeep VN",
   "license": "MIT",
   "devDependencies": {
     "typescript": "^5.6.2"
-  }
+  },
+  "files": [
+    "dist/**/*"
+  ]
 }

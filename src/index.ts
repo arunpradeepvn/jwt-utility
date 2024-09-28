@@ -10,7 +10,7 @@ function manualAtob(encoded: string): string {
 
     if (charIndex === -1) {
       if (char === '=') continue;
-      throw new Error('Invalid character in Base64 string');
+      throw new Error(`Invalid character "${char}" in Base64 string`);
     }
 
     buffer = (buffer << 6) | charIndex;
@@ -30,13 +30,17 @@ interface JWTPayload {
   sub: string;
   name: string;
   iat: number;
-  [key: string]: any; // Allows for any additional properties
+  [key: string]: any;
 }
 
 export const decodeJWT = (token: string): JWTPayload => {
+  if (!token) {
+    throw new Error('JWT token is empty');
+  }
+
   const parts = token.split('.');
   if (parts.length !== 3) {
-    throw new Error('Invalid JWT format');
+    throw new Error('Invalid JWT format: expected 3 parts');
   }
 
   const payload = parts[1];
