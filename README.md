@@ -1,4 +1,5 @@
 # JWT Utility
+![TypeScript Logo](https://raw.githubusercontent.com/microsoft/TypeScript/main/doc/images/logo.svg)
 
 A simple utility for decoding JWT (JSON Web Tokens) in TypeScript.
 
