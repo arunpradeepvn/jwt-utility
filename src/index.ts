@@ -1,4 +1,4 @@
-function manualAtob(encoded: string): string {
+function aTob(encoded: string): string {
   const base64Chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
   let output = '';
   let buffer = 0;
@@ -33,7 +33,7 @@ interface JWTPayload {
   [key: string]: any;
 }
 
-export const decodeJWT = (token: string): JWTPayload => {
+export const decodeJWT = async (token: string): Promise<JWTPayload> => {
   if (!token) {
     throw new Error('JWT token is empty');
   }
@@ -45,7 +45,7 @@ export const decodeJWT = (token: string): JWTPayload => {
 
   const payload = parts[1];
   const base64Url = payload.replace(/-/g, '+').replace(/_/g, '/');
-  const decodedPayload = manualAtob(base64Url);
+  const decodedPayload = aTob(base64Url);
 
   try {
     return JSON.parse(decodedPayload) as JWTPayload;
