@@ -2,6 +2,8 @@
 
 A simple utility for decoding JWT (JSON Web Tokens) in TypeScript.
 
+Supported in Expo, React Native, React.js and Node.js.
+
 ## Installation
 
 You can install the package via npm:
@@ -31,7 +33,7 @@ To decode a JWT, use the decodeJWT function:
 ```js
 const token = 'YOUR_JWT_TOKEN_HERE';
 try {
-    const decoded = decodeJWT(token);
+    const decoded = await decodeJWT(token);
     console.log(decoded);
 } catch (error) {
     console.error('Failed to decode token:', error);
